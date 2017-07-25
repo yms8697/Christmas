@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title>圣诞主题</title>
+  <link rel='stylesheet' href='css/pageA.css'>
+  <link rel='stylesheet' href='css/pageB.css'>
+  <link rel='stylesheet' href='css/pageC.css'>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .bg-adaptive {
+      background-size: 100% 100%;
+    }
+    /**
+    * 页面切换
+    * 镜头方法
+    */
+    .effect-out{
+        animation: effectOut 8s ease-in-out forwards;
+       transform-origin:71% 72%;
+    }
+    @keyframes effectOut{
+        0% { opacity:1; }
+        100% { transform: scale(20); opacity:0; }
+    }
+    .effect-in{
+        z-index: 15;
+        display: block;
+        opacity:0;
+        transform: scale(8); 
+        animation: effectIn 5s ease-in-out forwards;
+        transform-origin:58.5% 73.5%;
+    }
+    @keyframes effectIn{
+        100% { -webkit-transform: scale(1); opacity:1; }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <section class="container">
+    <!-- 第一幅画面 -->
+    <section class="page-a bg-adaptive">
+      <!-- 月亮 -->
+      <figure class="moon"></figure>
+      <!-- 圣诞树 -->
+      <figure class="tree"></figure>
+      <!-- 云 -->
+      <figure class="cloudy"></figure>
+      <!--男孩-->
+      <div class="chs-boy boy-walk"></div>
+      <!-- 窗户 -->
+      <div class="window wood">
+        <div class="window-bg"></div>
+        <div class="window-content">
+          <div class="window-left"></div>
+          <div class="window-right"></div>
+        </div>
+      </div>
+    </section>
+    <!-- 第二幅画面 -->
+    <section class="page-b bg-adaptive">
+      <!--圣诞男孩-->
+      <figure class="christmas-boy-head"></figure>
+      <figure class="christmas-boy boy-walk"></figure>
+      <!--女孩-->
+      <figure class="girl"></figure>
+      <!--猫-->
+      <figure class="cat cat-no-book"></figure>
+      <!--礼物-->
+      <div id="carousel" style="perspective: 500px; position: absolute; left: 6rem; top: 4rem; transform:scale(0.2); display:none;">
+        <figure id="spinner" style="width: 4rem; transform-style: preserve-3d; ">
+          <figure style="width:4rem;transform:rotateY(0deg) translateZ(2.5rem);position:absolute;"><img src="images/carousel/3.png" style="width:100%;height:100%;"></figure>
+          <figure style="width:4rem;transform: rotateY(120deg) translateZ(2.5rem);position:absolute;"><img src="images/carousel/1.png" style="width:100%;height:100%;"></figure>
+          <figure style="width:4rem;transform: rotateY(240deg) translateZ(2.5rem);position:absolute;"><img src="images/carousel/2.png" style="width:100%;height:100%;"></figure>
+        </figure>
+      </div>
+    </section>
+    <!-- 第三幅画面 -->
+    <section class="page-c bg-adaptive">
+    </section>
+  </section>
+  <script type="text/javascript" src="script/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="script/transition.js"></script>
+  <script type="text/javascript" src="script/observer.js"></script>
+  <script type="text/javascript" src="script/pageA.js"></script>
+  <script type="text/javascript" src="script/pageB.js"></script>
+  <script type="text/javascript" src="script/christmas.js"></script>
+  <script>
+    //rem设置
+    (function (doc, win) {
+        $("html,body").animate({'scrollTop':"0px"});
+        var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            document.body.style.height = clientWidth * (900 / 1440) + "px"
+          };
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      })(document, window);
+  </script>
+</body>
+
+</html>
