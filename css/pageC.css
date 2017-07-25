@@ -1,0 +1,52 @@
+.page-c{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: url('../images/c/page-c-bg.png');
+    z-index: 3
+}
+.page-c .window{
+    left: 8.1rem;
+}
+.window-left.close,
+.window-right.close {
+    animation: closeWindow 2s forwards;
+}
+@keyframes closeWindow {
+   100% {
+        transform: scale(1) rotateY(0deg) rotateZ(0deg);
+        margin-right: 0;
+        margin-left: 0;
+    } 
+}
+.window-scene-bg {
+    background: url(http://img.mukewang.com/565d0b4c0001816b02270135.png);
+    background-size: 100% 100%;
+    width: 2.26rem;
+    height: 1.2rem;
+    position: absolute;
+    left: 50%;
+    bottom: .1rem;
+    z-index: -1;
+    margin-left: -1.13rem;
+    transform: translateZ(-50px);
+    opacity: 1;
+}
+
+
+/**
+ * 关门背景
+ */
+.window-close-bg {
+    background: url(http://img.mukewang.com/565d0b3d00016a4600810081.png);
+    background-size: 100% 100%;
+    width: 0.8rem;
+    height: 0.8rem;
+    position: absolute;
+    left: 50%;
+    bottom: .1rem;
+    margin-left: -0.4rem;
+    transform: translateZ(-50px);
+    z-index: 99;
+    opacity: 0;
+}

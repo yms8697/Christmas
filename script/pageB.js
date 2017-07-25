@@ -169,7 +169,7 @@ function pageB (callback,ele) {
             //解开包裹
             return boyAction.unWrap();
         })
-        .then(function () {
+        /*.then(function () {
             return girlAction.action(0);
         })
         .then(function () {
@@ -177,7 +177,7 @@ function pageB (callback,ele) {
         })
         .then(function () {
             return girlAction.action(2);
-        })
+        })*/
         .then(function(){
             var dfd=$.Deferred();
             $('#carousel').hide(1000)
@@ -199,13 +199,22 @@ function pageB (callback,ele) {
             return dfd
         })
         .then(function () {
+            var dfd=$.Deferred();
             //继续走路
             girlAction.weepWalk(function () {
                 //拥抱
                 girlAction.hug();
+                dfd.resolve();
             })
+            return dfd; 
         })
-        
+        .then(function () {
+            setTimeout(function () {
+                callback();
+            }, 2000)
+
+        })
+    
     
    /* girlAction
         .standUp()
