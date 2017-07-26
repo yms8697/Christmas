@@ -47,7 +47,7 @@
   </style>
 </head>
 
-<body>
+<body style="overflow-y:hidden;word-break:break-all;">
   
   <section class="container">
     <!-- 第一幅画面 -->
@@ -98,31 +98,33 @@
           <div class="window-right hover"></div>
         </div>
       </div>
+       <!-- 雪花 -->
+      <canvas id="snowflake"></canvas>
     </section>
   </section>
   <script type="text/javascript" src="script/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="script/transition.js"></script>
-  <script type="text/javascript" src="script/observer.js"></script>
-  <script type="text/javascript" src="script/pageA.js"></script>
-  <script type="text/javascript" src="script/pageB.js"></script>
-  <script type="text/javascript" src="script/pageC.js"></script>
-  <script type="text/javascript" src="script/christmas.js"></script>
   <script>
     //rem设置
     (function (doc, win) {
-        $("html,body").animate({'scrollTop':"0px"});
+        $("html,body").animate({ 'scrollTop': "0px" });
         var docEl = doc.documentElement,
           resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
           recalc = function () {
             var clientWidth = docEl.clientWidth;
             if (!clientWidth) return;
             docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-            document.body.style.height = clientWidth * (900 / 1440) + "px"
+            document.body.style.height = clientWidth * (900 / 1440) + "px";
           };
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
       })(document, window);
   </script>
+  <script type="text/javascript" src="script/transition.js"></script>
+  <script type="text/javascript" src="script/observer.js"></script>
+  <script type="text/javascript" src="script/pageA.js"></script>
+  <script type="text/javascript" src="script/pageB.js"></script>
+  <script type="text/javascript" src="script/pageC.js"></script>
+  <script type="text/javascript" src="script/christmas.js"></script>
 </body>
 
 </html>

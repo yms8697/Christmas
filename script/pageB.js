@@ -169,7 +169,7 @@ function pageB (callback,ele) {
             //解开包裹
             return boyAction.unWrap();
         })
-        /*.then(function () {
+        .then(function () {
             return girlAction.action(0);
         })
         .then(function () {
@@ -177,7 +177,7 @@ function pageB (callback,ele) {
         })
         .then(function () {
             return girlAction.action(2);
-        })*/
+        })
         .then(function(){
             var dfd=$.Deferred();
             $('#carousel').hide(1000)
@@ -211,7 +211,7 @@ function pageB (callback,ele) {
         .then(function () {
             setTimeout(function () {
                 callback();
-            }, 2000)
+            }, 1500)
 
         })
     
